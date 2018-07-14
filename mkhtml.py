@@ -34,7 +34,7 @@ def parse_swatches(swatches, extra_width=6, extra_height=4, swatches_per_row=20)
     through the keyword arguments of this function.
     '''
     html_text = '<table><tr>'
-    swatch_template = '<td><div style="background-color:#{color};width:{width}px;height:{height}px;"></div></td>'
+    swatch_template = '<td><div style="background-color: #{color}; width:{width}px; height:{height}px;"></div></td>'
     
     separator_counter = 0
     counter = 0
@@ -70,11 +70,10 @@ def parse_swatches(swatches, extra_width=6, extra_height=4, swatches_per_row=20)
 if __name__ == '__main__':
     # Set up all variables and template.
     title = 'HTML output of ' + args.filename
-    style = 'div{margin:auto;} table{padding-bottom:60px;}'
+    style = 'div { margin: auto; } table { padding-bottom: 60px; }'
     header = '<html><head><title>' + title + \
         '</title><style type="text/css">' + style + \
         '</style></head><body>'
-
     footer = '</body></html>'
 
     # Argument parse and usage message.
