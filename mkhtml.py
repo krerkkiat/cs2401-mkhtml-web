@@ -68,14 +68,6 @@ def parse_swatches(swatches, extra_width=6, extra_height=4, swatches_per_row=20)
     return html_text
 
 if __name__ == '__main__':
-    # Set up all variables and template.
-    title = 'HTML output of ' + args.filename
-    style = 'div { margin: auto; } table { padding-bottom: 60px; }'
-    header = '<html><head><title>' + title + \
-        '</title><style type="text/css">' + style + \
-        '</style></head><body>'
-    footer = '</body></html>'
-
     # Argument parse and usage message.
     parser = argparse.ArgumentParser(description='Turn output file of CS2401\'s Project 4 into the HTML file.')
     parser.add_argument('filename', type=str, help='the name of the file to be processed')
@@ -87,6 +79,14 @@ if __name__ == '__main__':
         help='the extra height that will be added to the height of each swatches')
 
     args = parser.parse_args()
+
+    # Set up all variables and template.
+    title = 'HTML output of ' + args.filename
+    style = 'div { margin: auto; } table { padding-bottom: 60px; }'
+    header = '<html><head><title>' + title + \
+        '</title><style type="text/css">' + style + \
+        '</style></head><body>'
+    footer = '</body></html>'
 
     with open(args.filename + '.html', 'w') as output_file:
         output_file.write(header)
