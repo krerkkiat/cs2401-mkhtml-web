@@ -3,7 +3,7 @@ import os
 import re
 
 from flask import Flask, Request, request, redirect, url_for
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 from mkhtml import parse_swatches
 
