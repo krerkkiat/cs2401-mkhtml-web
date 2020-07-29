@@ -1,1 +1,1 @@
-web: gunicorn mkhtml_server:app --log-file -
+web: gunicorn mkhtml.server:app --log-file -

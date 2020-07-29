@@ -1,25 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-A simple recreation of p1p2_mkhtml (or labs_mkhtml) of
-Mr. John Dolan at Ohio University.
+A port of p1p2_mkhtml (or labs_mkhtml).
+
+Said peice of software was by Mr. John Dolan at Ohio University.
 
 This will allow student to use their own machince to turn
 the output of the project 4 program into a HTML file.
 
 This might reduce the time to transfer file from local
-machince to the Prime server (and other way arond to get the 
+machince to the Prime server (and other way arond to get the
 HTML file back).
-
-Although this module is part of the mkhtml_server, a flask
-web application, it can be called from command line with both
-Python2 or Python3 to locally parse the output file.
 """
 import re
 import argparse
 
 # Regular Expression patterns.
-swatch_pattern = re.compile("[\da-zA-Z]{6,6}\s+\d{2,3}\s+\d{2,3}")
-space_pattern = re.compile("\s+")
+swatch_pattern = re.compile(r"[\da-zA-Z]{6,6}\s+\d{2,3}\s+\d{2,3}")
+space_pattern = re.compile(r"\s+")
 
 
 def parse_swatches(swatches, extra_width=6, extra_height=4, swatches_per_row=20):

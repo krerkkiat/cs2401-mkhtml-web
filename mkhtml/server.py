@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 from mkhtml import parse_swatches
 
-ALLOWED_EXTENSIONS = set(["txt"])
+ALLOWED_EXTENSIONS = {"txt"}
 
 app = Flask(__name__)
 # file size is limitted at 16 MB
@@ -114,4 +114,3 @@ if __name__ == "__main__":
     app.debug = False
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
