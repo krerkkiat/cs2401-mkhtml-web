@@ -2,7 +2,7 @@
 import os
 import re
 
-from flask import Flask, Request, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
 from mkhtml import parse_swatches
@@ -59,17 +59,7 @@ def get_result(file):
 
 @app.route("/disclaimer")
 def show_disclaimer():
-    return (
-        '''
-    <!doctype html>
-    <title>Make HTML (CS2401 - Project 4)</title>
-    <h2>Make HTML (CS2401 - Project 4)</h2>
-    <div>DISCLAIMER: I, KRERKKIAT CHUSAP, AM NOT RESPONSEIBLE FOR ANY PROBLEM OR DAMAGE THAT RESULT FROM USING THIS WEB APPLICATION.</div>
-    <a href="'''
-        + url_for("upload_file")
-        + """">back</a>
-    """
-    )
+    return render_template("disclaimer.html")
 
 
 @app.route("/error")
@@ -85,29 +75,12 @@ def show_error(text):
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
-    # try:
     if request.method == "POST":
         file = request.files["file"]
         if file and allowed_file(file.filename):
             return get_result(file)
-    # except Exception:
-    #    redirect(url_for('show_error', text='Unknown error.'))
 
-    return (
-        '''
-    <!doctype html>
-    <title>Make HTML (CS2401 - Project 4)</title>
-    <h2>Make HTML (CS2401 - Project 4)</h2>
-    <h3>Upload new File</h3>
-    <form action="" method=post enctype=multipart/form-data>
-        <p><input type=file name=file>
-            <input type=submit value=Upload>
-    </form>
-    <br/><a href="'''
-        + url_for("show_disclaimer")
-        + """">disclaimer</a>
-    """
-    )
+    return render_template("home.html")
 
 
 if __name__ == "__main__":

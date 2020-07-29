@@ -1,0 +1,2 @@
+graft mkhtml/templates
+global-exclude __pycache__  *.pyc
